@@ -9,10 +9,11 @@ install_subdir(
 
 ext_src = custom_target(
     command: [py, files('looptools_build.py')],
-    output: '_looptools_lib.c'
+    output: ['_looptools_lib.c']
 )
 
 looptools_lib = declare_dependency(
+  compile_args: ['-ILoopTools-2.16/build'],
   link_args: ['-lgfortran' ,'-LLoopTools-2.16/build','-looptools']
 )
 
@@ -20,7 +21,6 @@ py.extension_module(
     '_looptools_lib',
     ext_src,
     install: true,
-    include_directories: ['LoopTools-2.16/build'],
     dependencies: [py.dependency(), looptools_lib],
     limited_api: '3.8',
 )
