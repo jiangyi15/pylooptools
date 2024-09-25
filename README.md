@@ -6,10 +6,20 @@ This project is based on [LoopTools](https://feynarts.de/looptools/) and [cffi](
 Installation
 ------------
 
+You can download it and build from source.
 ```
 git clone https://github.com/jiangyi15/pylooptools.git
 cd pylooptools
 pip install .
+```
+
+The script `looptools_build.py` will download LoopTools automatically and build it.
+It require C/C++ and Fortran compilers.
+
+
+Or you can directly for github
+```
+pip install git+https://github.com/jiangyi15/pylooptools.git
 ```
 
 
@@ -31,3 +41,5 @@ The function also support [broadcasting](https://numpy.org/doc/stable/user/basic
 ```
 F.B0(1000, 50, [80, 80])
 ```
+
+The results will also be arrays.
